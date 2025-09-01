@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shokz Career Opportunities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .shokz-logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .filters {
+            padding: 30px 40px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .clear-filters {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .clear-filters:hover {
+            background: #ff5252;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .job-count {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .office-section {
+            margin-bottom: 40px;
+        }
+
+        .office-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #2d3748;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .department {
+            margin-bottom: 30px;
+        }
+
+        .department-title {
+            font-size: 1.2em;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: 600;
+            padding: 10px 0;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .jobs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .jobs-table th {
+            background: #f8fafc;
+            color: #4a5568;
+            font-weight: 600;
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .jobs-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .jobs-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .apply-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .apply-btn.logistics { background: linear-gradient(135deg, #4285f4 0%, #1976d2 100%); }
+        .apply-btn.marketing { background: linear-gradient(135deg, #34a853 0%, #2e7d32 100%); }
+        .apply-btn.research { background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%); }
+
+        .hidden {
+            display: none;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #718096;
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .footer {
+            background: #f8fafc;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .header { padding: 30px 20px; }
+            .content { padding: 20px; }
+            .filters { padding: 20px; flex-direction: column; align-items: stretch; }
+            .filter-group { justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="shokz-logo" src="https://github.com/user-attachments/assets/342c6f1f-0e56-468d-a989-e82788d310c1" alt="Shokz Logo" />
+            <h1>🎧 Shokz Career Opportunities</h1>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label class="filter-label">Location:</label>
+                <select class="filter-select" id="locationFilter">
+                    <option value="">All Locations</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="shenzhen">Shenzhen</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Department:</label>
+                <select class="filter-select" id="departmentFilter">
+                    <option value="">All Departments</option>
+                    <option value="logistics">Quality & Planning & Logistics</option>
+                    <option value="marketing">Sales & Marketing</option>
+                    <option value="research">Basic Research</option>
+                </select>
+            </div>
+            <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
+        </div>
+        
+        <div class="content">
+            <div class="job-count" id="jobCount">Showing all 13 positions</div>
+            
+            <div class="office-section" data-location="singapore">
+                <h2 class="office-title">🇸🇬 Singapore Office</h2>
+                
+                <div class="department" data-department="logistics">
+                    <h3 class="department-title">Quality & Planning & Logistics</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="singapore" data-department="logistics">
+                                <td class="job-title">Customer Quality Engineer</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/customer-quality-engineer" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="logistics">
+                                <td class="job-title">Planning Coordinator</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/planning-coordinator" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="logistics">
+                                <td class="job-title">International Logistic Specialist</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/international-logistic-specialist" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="department" data-department="marketing">
+                    <h3 class="department-title">Sales & Marketing</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="singapore" data-department="marketing">
+                                <td class="job-title">Marketing Specialist</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/marketing-specialist" class="apply-btn marketing">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="marketing">
+                                <td class="job-title">Graduate Trainee (Indonesia Sales)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/graduate-trainee-indonesia" class="apply-btn marketing">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="marketing">
+                                <td class="job-title">E-Commerce Specialist</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/ecommerce-specialist" class="apply-btn marketing">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="department" data-department="research">
+                    <h3 class="department-title">Basic Research</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Algorithm Engineer (Healthcare)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/algorithm-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Materials Engineer (Healthcare)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/materials-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Electronics Engineer (Healthcare)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/electronics-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Researcher (Electronics)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-electronics" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Researcher (Hearing Aids)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-hearing-aids" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Researcher (Algorithms)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-algorithms" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research">
+                                <td class="job-title">Researcher (Acoustic Devices)</td>
+                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-acoustic-devices" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="office-section" data-location="shenzhen">
+                <h2 class="office-title">🇨🇳 Shenzhen Headquarters</h2>
+                
+                <div class="department" data-department="logistics">
+                    <h3 class="department-title">Planning & Logistics</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="shenzhen" data-department="logistics">
+                                <td class="job-title">Product Material Planner</td>
+                                <td><a href="https://careers.shokz.com/apply/shenzhen/product-material-planner" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="shenzhen" data-department="logistics">
+                                <td class="job-title">International Logistics Specialist</td>
+                                <td><a href="https://careers.shokz.com/apply/shenzhen/international-logistics-specialist" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="shenzhen" data-department="logistics">
+                                <td class="job-title">Overseas Warehouse Specialist</td>
+                                <td><a href="https://careers.shokz.com/apply/shenzhen/overseas-warehouse-specialist" class="apply-btn logistics">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="no-results hidden" id="noResults">
+                <p>No positions match your selected filters. Try adjusting your search criteria.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3 style="margin-bottom: 15px; color: #2d3748;">🎯 Why Join Shokz?</h3>
+                <p><strong>🚀 Innovation Leader</strong> - Pioneer in bone conduction technology</p>
+                <p><strong>🌍 Global Impact</strong> - Products used worldwide</p>
+                <p><strong>🏆 Career Growth</strong> - Learn from industry experts</p>
+                <p><strong>💡 Cutting-edge Tech</strong> - Work with latest audio technologies</p>
+                <p><strong>🤝 Great Culture</strong> - Collaborative and inclusive environment</p>
+                <br>
+                <p><strong>Ready to make sound waves?</strong> 🎵</p>
+                <p><em>We're excited to hear from you!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const jobs = {
+            singapore: {
+                logistics: [
+                    { title: "Customer Quality Engineer", url: "https://careers.shokz.com/apply/singapore/customer-quality-engineer" },
+                    { title: "Planning Coordinator", url: "https://careers.shokz.com/apply/singapore/planning-coordinator" },
+                    { title: "International Logistic Specialist", url: "https://careers.shokz.com/apply/singapore/international-logistic-specialist" }
+                ],
+                marketing: [
+                    { title: "Marketing Specialist", url: "https://careers.shokz.com/apply/singapore/marketing-specialist" },
+                    { title: "Graduate Trainee (Indonesia Sales)", url: "https://careers.shokz.com/apply/singapore/graduate-trainee-indonesia" },
+                    { title: "E-Commerce Specialist", url: "https://careers.shokz.com/apply/singapore/ecommerce-specialist" }
+                ],
+                research: [
+                    { title: "Algorithm Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/algorithm-engineer-healthcare" },
+                    { title: "Materials Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/materials-engineer-healthcare" },
+                    { title: "Electronics Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/electronics-engineer-healthcare" },
+                    { title: "Researcher (Electronics)", url: "https://careers.shokz.com/apply/singapore/researcher-electronics" },
+                    { title: "Researcher (Hearing Aids)", url: "https://careers.shokz.com/apply/singapore/researcher-hearing-aids" },
+                    { title: "Researcher (Algorithms)", url: "https://careers.shokz.com/apply/singapore/researcher-algorithms" },
+                    { title: "Researcher (Acoustic Devices)", url: "https://careers.shokz.com/apply/singapore/researcher-acoustic-devices" }
+                ]
+            },
+            shenzhen: {
+                logistics: [
+                    { title: "Product Material Planner", url: "https://careers.shokz.com/apply/shenzhen/product-material-planner" },
+                    { title: "International Logistics Specialist", url: "https://careers.shokz.com/apply/shenzhen/international-logistics-specialist" },
+                    { title: "Overseas Warehouse Specialist", url: "https://careers.shokz.com/apply/shenzhen/overseas-warehouse-specialist" }
+                ]
+            }
+        };
+
+        function filterJobs() {
+            const locationFilter = document.getElementById('locationFilter').value;
+            const departmentFilter = document.getElementById('departmentFilter').value;
+            
+            let visibleCount = 0;
+            
+            // Show/hide office sections
+            document.querySelectorAll('.office-section').forEach(section => {
+                const location = section.dataset.location;
+                const shouldShowLocation = !locationFilter || location === locationFilter;
+                
+                if (shouldShowLocation) {
+                    section.style.display = 'block';
+                    
+                    // Show/hide departments within this office
+                    section.querySelectorAll('.department').forEach(dept => {
+                        const department = dept.dataset.department;
+                        const shouldShowDepartment = !departmentFilter || department === departmentFilter;
+                        
+                        if (shouldShowDepartment) {
+                            dept.style.display = 'block';
+                            const jobRows = dept.querySelectorAll('.job-row');
+                            visibleCount += jobRows.length;
+                        } else {
+                            dept.style.display = 'none';
+                        }
+                    });
+                    
+                    // Hide office section if no departments are visible
+                    const visibleDepts = section.querySelectorAll('.department:not([style*="none"])');
+                    if (visibleDepts.length === 0) {
+                        section.style.display = 'none';
+                    }
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Update job count
+            const jobCountEl = document.getElementById('jobCount');
+            const noResultsEl = document.getElementById('noResults');
+            
+            if (visibleCount === 0) {
+                jobCountEl.textContent = 'No positions found';
+                noResultsEl.classList.remove('hidden');
+            } else {
+                jobCountEl.textContent = `Showing ${visibleCount} position${visibleCount !== 1 ? 's' : ''}`;
+                noResultsEl.classList.add('hidden');
+            }
+        }
+
+        function clearFilters() {
+            document.getElementById('locationFilter').value = '';
+            document.getElementById('departmentFilter').value = '';
+            filterJobs();
+        }
+
+        // Add event listeners
+        document.getElementById('locationFilter').addEventListener('change', filterJobs);
+        document.getElementById('departmentFilter').addEventListener('change', filterJobs);
+
+        // Initialize
+        filterJobs();
+    </script>
+</body>
+</html>
