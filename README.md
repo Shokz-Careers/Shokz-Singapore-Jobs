@@ -1,12 +1,6 @@
-# 🎧 Shokz Career Opportunities
 
-<div align="center">
-
-*Join the Shokz team and help shape the future of audio technology!* 🚀
-
-</div>
-
----
+# Shokz Career Opportunities
+<img width="320" height="320" alt="image" src="https://github.com/user-attachments/assets/342c6f1f-0e56-468d-a989-e82788d310c1" />
 
 ## Singapore Office
 
