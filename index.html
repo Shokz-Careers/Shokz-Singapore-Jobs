@@ -173,6 +173,13 @@
             color: #2d3748;
         }
 
+        .job-row { cursor: pointer; }
+        .job-row.active { background: #f1f5f9; }
+        .job-details td { padding: 0; border-bottom: none; }
+        .details-panel { padding: 16px 20px; background: #f9fafb; color: #4a5568; border-top: 1px solid #e2e8f0; }
+        .details-meta { font-size: 13px; color: #718096; margin-bottom: 8px; }
+        .details-description { margin-top: 8px; }
+
         .apply-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -234,7 +241,7 @@
     <div class="container">
         <div class="header">
             <img class="shokz-logo" src="https://github.com/user-attachments/assets/342c6f1f-0e56-468d-a989-e82788d310c1" alt="Shokz Logo" />
-            <h1>🎧 Hear Future Here Shokz</h1>
+            <h1>Hear Future Here Shokz</h1>
         </div>
 
         <div class="filters">
@@ -432,6 +439,61 @@
             }
         };
 
+        function generateJobDescription(title, location, department) {
+            const prettyLocation = location ? location.charAt(0).toUpperCase() + location.slice(1) : '';
+            const prettyDept = department ? department.charAt(0).toUpperCase() + department.slice(1) : '';
+            return `
+                <p><strong>${title}</strong> is a key role within our ${prettyDept} team in ${prettyLocation}. You will collaborate with cross-functional partners to deliver measurable impact.</p>
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Own day-to-day operations and drive continuous improvements.</li>
+                    <li>Collaborate with internal and external stakeholders to achieve goals.</li>
+                    <li>Analyze data, generate insights, and report progress to leadership.</li>
+                    <li>Document processes and ensure best practices are followed.</li>
+                </ul>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Bachelor's degree or equivalent experience in a relevant field.</li>
+                    <li>Strong communication and problem-solving skills.</li>
+                    <li>Ability to work independently and in a team, in a fast-paced environment.</li>
+                    <li>Fluency in English; additional languages are a plus.</li>
+                </ul>
+            `;
+        }
+
+        function setupJobDetails() {
+            document.querySelectorAll('.jobs-table tbody').forEach(tbody => {
+                tbody.querySelectorAll('.job-row').forEach(row => {
+                    const jobTitleCell = row.querySelector('.job-title');
+                    const applyAnchor = row.querySelector('.apply-btn');
+                    if (!jobTitleCell || !applyAnchor) return;
+
+                    const location = row.dataset.location || '';
+                    const department = row.dataset.department || '';
+
+                    const detailsRow = document.createElement('tr');
+                    detailsRow.className = 'job-details hidden';
+                    const detailsCell = document.createElement('td');
+                    detailsCell.colSpan = 2;
+                    detailsCell.innerHTML = `
+                        <div class="details-panel">
+                            <div class="details-meta">Location: ${location.charAt(0).toUpperCase() + location.slice(1)} · Department: ${department.charAt(0).toUpperCase() + department.slice(1)}</div>
+                            <div class="details-description">${generateJobDescription(jobTitleCell.textContent, location, department)}</div>
+                        </div>
+                    `;
+                    detailsRow.appendChild(detailsCell);
+                    row.parentNode.insertBefore(detailsRow, row.nextSibling);
+
+                    row.addEventListener('click', (evt) => {
+                        if (evt.target.closest('.apply-btn')) return;
+                        const isHidden = detailsRow.classList.contains('hidden');
+                        detailsRow.classList.toggle('hidden');
+                        row.classList.toggle('active', isHidden);
+                    });
+                });
+            });
+        }
+
         function filterJobs() {
             const locationFilter = document.getElementById('locationFilter').value;
             const departmentFilter = document.getElementById('departmentFilter').value;
@@ -494,6 +556,7 @@
         document.getElementById('departmentFilter').addEventListener('change', filterJobs);
 
         // Initialize
+        setupJobDetails();
         filterJobs();
     </script>
 </body>
