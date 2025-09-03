@@ -439,26 +439,248 @@
             }
         };
 
-        function generateJobDescription(title, location, department) {
-            const prettyLocation = location ? location.charAt(0).toUpperCase() + location.slice(1) : '';
-            const prettyDept = department ? department.charAt(0).toUpperCase() + department.slice(1) : '';
-            return `
-                <p><strong>${title}</strong> is a key role within our ${prettyDept} team in ${prettyLocation}. You will collaborate with cross-functional partners to deliver measurable impact.</p>
-                <p><strong>Responsibilities:</strong></p>
-                <ul>
-                    <li>Own day-to-day operations and drive continuous improvements.</li>
-                    <li>Collaborate with internal and external stakeholders to achieve goals.</li>
-                    <li>Analyze data, generate insights, and report progress to leadership.</li>
-                    <li>Document processes and ensure best practices are followed.</li>
-                </ul>
-                <p><strong>Requirements:</strong></p>
-                <ul>
-                    <li>Bachelor's degree or equivalent experience in a relevant field.</li>
-                    <li>Strong communication and problem-solving skills.</li>
-                    <li>Ability to work independently and in a team, in a fast-paced environment.</li>
-                    <li>Fluency in English; additional languages are a plus.</li>
-                </ul>
-            `;
+        const jobDescriptions = {
+            "Customer Quality Engineer": "\
+                <p><strong>Customer Quality Engineer</strong> is a key role within our Quality team in Singapore. You will collaborate with cross-functional partners to deliver measurable impact.</p>\
+                <p><strong>Responsibilities:</strong></p>\
+                <ul>\
+                    <li>Work as a market quality representative in Southeast Asia (Singapore, Malaysia, Thailand, etc.), collecting quality information of client products (terminal products and POP display racks) through business trips and store inspections, listing problem points and promoting internal improvement within the company, enhancing user experience and satisfaction</li>\
+                <li>Research the market return data and trends. Establish a product return model to measure the quality level of the product market, and decompose responsibility for quality issues to each business unit based on physical analysis to identify improvement opportunities</li>\
+                <li>Bridge the gap between consumers and SHOKZ, dive deep into local stores and after-sales processes, identify improvement & risk points, and promote SHOKZ's development</li>\
+                <li>Other assigned tasks</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Bachelor's degree or above, majoring in science and engineering</li>\
+                <li>Having excellent teamwork and communication coordination skills, having strong self motivation, able to flexibly respond to changes.</li>\
+                <li>Located in a subsidiary in Singapore, required business trips to Malaysia, Thailand, Japan, South Korea, and other countries.</li>\
+                <li>Passionate about learning and sports.</li>\
+                <li>Need to collaborate on projects with Chinese-speaking colleagues based in China. Good at Chinese is preferred.</li>\
+                </ul>",
+            "Planning Coordinator": "",
+            "International Logistic Specialist": "",
+            "Marketing Specialist": "\
+                <p><strong>Marketing Specialist</strong> will be a vital part of our marketing initiatives across Southeast Asia, based in Singapore. \
+                This role is designed for recent graduates looking to make an impact in KOL management, social media operations, consumer research, and the execution of new product launch events. \
+                The successful candidate will be eager to learn and contribute to our dynamic team.</p>\
+                <p><strong>Responsibilities:</strong></p>\
+                <ul>\
+                <li><strong>KOL Management:</strong>\
+                    <ul>\
+                    <li>Support in managing partnerships and coordinating KOL endorsements.</li>\
+                    <li>Assist in creating marketing campaigns featuring KOLs.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Social Media Operations:</strong>\
+                    <ul>\
+                    <li>Help drive social media strategies to increase brand engagement.</li>\
+                    <li>Support in producing content and tracking performance metrics.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Consumer Research:</strong>\
+                    <ul>\
+                    <li>Conduct market research to gather insights on consumer behavior and preferences.</li>\
+                    <li>Analyze data and provide reports to inform marketing strategies.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>New Product Launch Events:</strong>\
+                    <ul>\
+                    <li>Assist in planning and executing events for new product launches.</li>\
+                    <li>Ensure events align with brand messaging and marketing goals.</li>\
+                    </ul>\
+                </li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Bachelor's degree in Marketing, Communications, Business, or a related field, completed within the last year.</li>\
+                <li>Basic understanding of marketing principles and practices.</li>\
+                <li>Experience in social media management and KOL partnerships is a plus.</li>\
+                <li>Strong organizational and communication skills.</li>\
+                <li>Proficiency in Microsoft Office Suite and basic knowledge of social media management tools.</li>\
+                <li>A keen interest in consumer research and market analysis.</li>\
+                </ul>",
+            "Graduate Trainee (Indonesia Sales)": "\
+            <p><strong>Graduate Trainee (Indonesia Sales)</strong> will play a crucial role in our retail operations across Southeast Asia, with a focus on the Indonesian market, based in Singapore. \
+                This role is designed for recent graduates looking to launch their careers in retail management, event planning, and customer service. \
+                The successful candidate will be fluent in Indonesian and have a strong foundation in business principles.</p>\
+                <p><strong>Responsibilities:</strong></p>\
+                <ul>\
+                <li><strong>Event Operations:</strong>\
+                    <ul>\
+                    <li>Assist in developing and executing event plans for in-store promotions and product launches.</li>\
+                    <li>Support coordination with marketing and sales teams to align events with company objectives.</li>\
+                    <li>Participate in managing event logistics, including vendor coordination and budget management.</li>\
+                    <li>Contribute to analyzing event outcomes and providing recommendations for future improvements.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Retail Store Inspections:</strong>\
+                    <ul>\
+                    <li>Support in conducting regular store inspections to ensure compliance with company policies and standards.</li>\
+                    <li>Identify areas for improvement and contribute to implementing corrective actions.</li>\
+                    <li>Assist in evaluating store performance metrics and providing feedback to store managers.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Training and Development:</strong>\
+                    <ul>\
+                    <li>Participate in designing and implementing training programs for retail staff.</li>\
+                    <li>Monitor training effectiveness and provide input for continuous improvement.</li>\
+                    <li>Assist in developing and maintaining a library of training materials and resources.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Sales and Performance:</strong>\
+                    <ul>\
+                    <li>Support in setting and achieving sales targets for assigned stores.</li>\
+                    <li>Contribute to strategies to increase customer traffic and conversion rates.</li>\
+                    </ul>\
+                </li>\
+                <li><strong>Customer Relations:</strong>\
+                    <ul>\
+                    <li>Help ensure high standards of customer service are maintained across all stores.</li>\
+                    <li>Assist in addressing customer complaints and feedback promptly and effectively.</li>\
+                    </ul>\
+                </li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Bachelor's degree in Business Administration, Marketing, or a related field, completed within the last year.</li>\
+                <li>Basic understanding of retail management and customer service principles.</li>\
+                <li>Fluency in Indonesian and English.</li>\
+                <li>Strong analytical skills with the ability to interpret basic sales data and customer feedback.</li>\
+                <li>Excellent communication and interpersonal skills.</li>\
+                <li>Ability to work in a fast-paced environment and manage multiple tasks simultaneously.</li>\
+                <li>Proficiency in Microsoft Office Suite and willingness to learn retail management software.</li>\
+                </ul>\
+                <p><strong>Work Environment:</strong></p>\
+                <p>This role will be based in Singapore with regular visits to retail stores and event venues across Southeast Asia, including Indonesia.</p>",
+            "E-Commerce Specialist": "\
+                <p><strong>E-commerce Specialist</strong> will be responsible for driving business development and managing operations across multiple e-commerce platforms in Southeast Asia, including Lazada and Shopee.</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                    <li>Be responsible for business development and operations across multiple platforms (Lazada, Shopee).</li>\
+                    <li>Plan product layout and operational strategies for e-commerce platforms in Southeast Asia.</li>\
+                    <li>Monitor daily operational data, formulate corresponding operational strategies based on data analysis to enhance store user stickiness and improve user experience.</li>\
+                    <li>Collect and analyze market information, grasp market dynamics, and formulate and adjust product pricing and promotion plans.</li>\
+                </ul>\
+                <p><strong>Qualifications:</strong></p>\
+                <ul>\
+                    <li>Bachelor's degree or above in Marketing, E-commerce, or related fields, with over 3 years of e-commerce operational experience in Southeast Asia.</li>\
+                    <li>Able to communicate proficiently in Chinese and English for work. Thai language proficiency is a plus.</li>\
+                    <li>Proficient in e-commerce platform operation processes, site operation rules and techniques, skilled in data-driven operations, with a deep understanding and insights into the e-commerce industry. Must have concurrent operational experience on both Shopee and Lazada.</li>\
+                    <li>Strong overall planning and coordination abilities, results-oriented, strong data analysis skills, and clear logical thinking.</li>\
+                    <li>Prior experience in operating 3C digital products, electronic products, or high-ticket items on Southeast Asian platforms is preferred.</li>\
+                </ul>",
+            "Algorithm Engineer (Healthcare)": "\
+                <p><strong>Algorithm Engineer (Healthcare)</strong> will explore the art of interaction between circuits and the human body. From the collection, processing to transmission of physiological signals, we listen to the body‘s whispers; from the design of status monitoring modules to the analysis of human body composition and signal quality, we objectively record the changes. We are the front-end of signal processing, the foundation of function realization, and the determinant of product ceiling!</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Conduct research on algorithms applied to wearable devices, explore algorithms for physiological signal processing, analysis, action classification, and recognition.</li>\
+                <li>Implement the hardware platform to enhance the functionality, performance, and reliability of the algorithms.</li>\
+                <li>Apply algorithms to products to amplify product advantages and enhance user experience.</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Majors in Electronic Engineering, Electronic Information, Microelectronics, Automation, Biomedical Engineering, Optoelectronic Information Science and Engineering, Signal and Information Processing, Medical Information Engineering, or related fields.</li>\
+                <li>Possess a focused mindset, a curiosity to explore the nature of things, and a pursuit of technological excellence.</li>\
+                <li>Have clear logic and be able to swiftly keep up with the latest scientific research results.</li>\
+                <li>Passionate about scientific research, committed to the commercialization of research outcomes, and enthusiastic about marketing them globally.</li>\
+                <li>Prior experience in signal processing, mathematical modeling competitions, or acoustic projects is preferred.</li>\
+                </ul>",
+            "Materials Engineer (Healthcare)": "\
+                <p><strong>Materials Engineer (Healthcare)</strong> will explore the art of interaction between circuits and the human body. From the collection, processing to transmission of physiological signals, we listen to the body‘s whispers; from the design of electrical excitation modules to the establishment of human sensory connections, we give the body motivation and reminders; from the design of status monitoring modules to the analysis of human body composition and signal quality, we objectively record the changes.</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Conduct experimental research related to conductive fabrics and elastic conductive complexes.</li>\
+                <li>Conduct experimental research on novel sensor materials, including mechanical sensors and physiological electrical signal sensors.</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Graduates of 2024 or 2025, bachelor's degree or above, majoring in Materials Science and Engineering or other material-related fields.</li>\
+                <li>Capable of diligently and responsibly completing one's own job.</li>\
+                <li>Clear in logic and positive in attitude.</li>\
+                </ul>",
+            "Electronics Engineer (Healthcare)": "\
+                <p><strong>Electronics Engineer (Healthcare)</strong> will explore the art of interaction between circuits and the human body. From the collection, processing to transmission of physiological signals, we listen to the body‘s whispers; from the design of status monitoring modules to the analysis of human body composition and signal quality, we objectively record the changes. We are the front-end of signal processing, the foundation of function realization, and the determinant of product ceiling!</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Understand systematic knowledge training and advanced training projects.</li>\
+                <li>Handle physiological signal processing, including chip selection and architecture design, gain and filtering scheme design, embedded development, board making, and testing.</li>\
+                <li>Design multi-circuit functional modules and establish the connection between the designed signals and the human body.</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Bachelor's degree or above, majoring in electronic engineering, microelectronics, automation control, electronic information, mechanical engineering, physics, etc., or having project experience in electronics, sensors, etc., with excellent academic performance and solid professional basic knowledge.</li>\
+                <li>Skilled in using electronic design software, with a good foundation in analog and digital electronics.</li>\
+                <li>Focused, with a curiosity to explore the nature of things and a pursuit of technological excellence.</li>\
+                <li>Clear-minded, good at problem-solving, able to quickly track the world's latest scientific research results, and capable of stimulating innovation.</li>\
+                <li>Candidates who have participated in electronic design competitions and won awards, and have experience in electronic or sensor-related projects are preferred.</li>\
+                </ul>",
+            "Researcher (Electronics)": "\
+                <p><strong>Researcher – Electronics</strong> will explore the art of interaction between circuits and the human body. From the collection, processing to transmission of physiological signals, we listen to the body‘s whispers; from the design of electrical excitation modules to the establishment of human sensory connections, we give the body motivation and reminders; from the design of status monitoring modules to the analysis of human body composition and signal quality, we objectively record the changes. We are the front-end of signal processing, the foundation of function realization, and the determinant of product ceiling!</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Physiological signal processing, including chip selection and architecture design, gain and filtering solution design, embedded development, PCB design and testing.</li>\
+                <li>Design of multiple circuit function modules and establishing the connection between the designed signals and the human body.</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>PhD, majoring in electronic engineering, microelectronics, automation control, electronic information, mechanical engineering, physics, or related fields, or have experience in electronics, sensors, and other projects with excellent academic performance and solid professional knowledge.</li>\
+                <li>Proficient in using electronic design software with a good foundation in analog and digital circuits.</li>\
+                <li>Have participated in electronic design competitions or other electronic competitions and won important awards, or have papers or patent achievements related to electronics or sensors, which will be preferred.</li>\
+                </ul>",
+            "Researcher (Hearing Aids)": "\
+                <p><strong>Researcher (Hearing Aids)</strong> is dedicated to the research and design of physiological signal processing algorithms, leveraging these algorithms to significantly enhance product experiences. Here, you'll collaborate with innovative minds, stay abreast of cutting-edge trends, and conduct groundbreaking algorithmic research tailored to our unique greater health products. Your role will involve exploring genuine user needs, prototyping algorithms, implementing algorithmic solutions, and designing algorithmic applications for our products.</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Lead algorithmic research for wearable devices, including physiological signal processing, analysis, feature extraction, and noise reduction, as well as edge AI research such as pattern recognition and large language model training.</li>\
+                <li>Implement algorithms on hardware platforms to enhance functionality, performance, and reliability.</li>\
+                <li>Apply algorithms to products to amplify their competitive edge and enhance user experiences.</li>\
+                </ul>\
+                <p><strong>Base:</strong> Shenzhen / Hong Kong / Singapore</p>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>Ph.D., major in Signal & Information Processing, Biomedical Engineering, Medical Information Engineering, Computer Science & Technology, Intelligent Science & Technology, Data Science & Big Data Technology, Software Engineering, Electronic Engineering, or related fields.</li>\
+                <li>Possess clear logic, are adept at hypothesis formulation, and can swiftly track the latest global research findings to inspire innovation.</li>\
+                <li>Passionate about research, driven to commercialize research outcomes globally, and find confidence, joy, and reward in doing so.</li>\
+                <li>Experience in signal processing, mathematical modeling competitions, or biomedical projects.</li>\
+                </ul>",
+            "Researcher (Algorithms)": "\
+                <p><strong>Researcher (Algorithms)</strong> is dedicated to the research and design of speech and audio signal processing algorithms to improve the product experience through algorithms. Here, you will work with the most innovative people, keep up with the cutting-edge direction, and do innovative algorithmic research for unique products. You will research algorithmic prototypes, implement algorithmic solutions, and design algorithmic applications for products.</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Responsible for the research of algorithms applied to acoustic devices and hearing aids, such as front-end processing and sound effects, voice enhancement, active noise reduction, auditory scene analysis and other acoustic and audiological algorithms.</li>\
+                <li>Responsible for the implementation of the algorithms on the hardware platform to improve the function, performance and reliability of the algorithms.</li>\
+                <li>Responsible for the application of algorithms in products to enhance product advantages and user experience.</li>\
+                </ul>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>PhD, majoring in acoustics, audiology, electrical engineering, electronic information, microelectronics, electronic information engineering, electrical engineering and automation, electronic science and technology, optoelectronic information science and engineering, signal and information processing.</li>\
+                <li>Clear logic, good at conjecture, able to quickly track the latest global scientific research results, and inspire innovation.</li>\
+                <li>Loving scientific research, committed to the marketization of scientific research results, and gain confidence, fun and profit from it.</li>\
+                <li>Experience in signal processing, mathematical modeling competitions, or acoustics projects is preferred.</li>\
+                </ul>",
+            "Researcher (Acoustic Devices)": "\
+                <p><strong>Researcher – Acoustic Devices</strong> will be exposed to the world‘s most cutting-edge bone conduction acoustic technology and research team. You will participate in the innovation of acoustic devices, acoustic systems and other underlying basic areas to create outstanding technology and products that change the way people listen to sound, fulfilling our mission of \"Use technological innovation to promote world progress and make human lives better\". You will have the opportunity to \"read thousands of books\" by exchanging and cooperating with industry and academic leaders; \"travel thousands of miles\" leaving your footprints in the world's major exhibitions and academic conferences; and turn your ideas into products that impact millions of people!</p>\
+                <p><strong>Job Scope:</strong></p>\
+                <ul>\
+                <li>Carry out research on acoustic devices and acoustic systems, and pre-research the core acoustic technology of products.</li>\
+                <li>Participate in the development of the product, responsible for the development of the acoustic part of the content.</li>\
+                </ul>\
+                <p><strong>Base:</strong> Shenzhen / Hong Kong / Singapore</p>\
+                <p><strong>Requirements:</strong></p>\
+                <ul>\
+                <li>PhD, majoring in acoustics, mechanics, mechanical engineering, electronics, automation, or have experience in acoustics, vibration, sensors and other projects.</li>\
+                <li>Focused, enjoy exploring the essence of things, and pursue excellence in technology.</li>\
+                <li>Clear logic, good at conjecture, able to quickly track the latest global scientific research results, and inspire innovation.</li>\
+                <li>Love scientific research, aim to quickly apply research results to products, market them globally, and gain confidence, fun and profit from talented people.</li>\
+                <li>Experience in acoustics, sensors, transducers and other related projects is preferred.</li>\
+                </ul>",
+            "Product Material Planner": "",
+            "International Logistics Specialist": "",
+            "Overseas Warehouse Specialist": ""
+        };
+
+        function getJobDescription(title) {
+            return jobDescriptions[title] || "";
         }
 
         function setupJobDetails() {
@@ -478,7 +700,7 @@
                     detailsCell.innerHTML = `
                         <div class="details-panel">
                             <div class="details-meta">Location: ${location.charAt(0).toUpperCase() + location.slice(1)} · Department: ${department.charAt(0).toUpperCase() + department.slice(1)}</div>
-                            <div class="details-description">${generateJobDescription(jobTitleCell.textContent, location, department)}</div>
+                            <div class="details-description">${getJobDescription(jobTitleCell.textContent)}</div>
                         </div>
                     `;
                     detailsRow.appendChild(detailsCell);
