@@ -178,7 +178,78 @@
         .job-details td { padding: 0; border-bottom: none; }
         .details-panel { padding: 16px 20px; background: #f9fafb; color: #4a5568; border-top: 1px solid #e2e8f0; }
         .details-meta { font-size: 13px; color: #718096; margin-bottom: 8px; }
-        .details-description { margin-top: 8px; }
+        .details-description { 
+            margin-top: 8px; 
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        
+        /* Job description formatting */
+        .details-description p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .details-description strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .details-description ul {
+            margin: 12px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .details-description li {
+            margin: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .details-description li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+            top: 0;
+        }
+        
+        /* Nested lists for better indentation */
+        .details-description ul ul {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+        
+        .details-description ul ul li {
+            padding-left: 20px;
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        .details-description ul ul li:before {
+            content: "◦";
+            color: #a0aec0;
+            left: 4px;
+        }
+        
+        /* Third level nesting */
+        .details-description ul ul ul {
+            padding-left: 16px;
+        }
+        
+        .details-description ul ul ul li {
+            padding-left: 16px;
+            font-size: 13px;
+        }
+        
+        .details-description ul ul ul li:before {
+            content: "▪";
+            color: #cbd5e0;
+            left: 2px;
+        }
 
         .apply-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -283,15 +354,15 @@
                         <tbody>
                             <tr class="job-row" data-location="singapore" data-department="logistics">
                                 <td class="job-title">Customer Quality Engineer</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/customer-quality-engineer" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Customer+Quality+Engineer" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="logistics">
                                 <td class="job-title">Planning Coordinator</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/planning-coordinator" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Planning+Coordinator" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="logistics">
                                 <td class="job-title">International Logistic Specialist</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/international-logistic-specialist" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=International+Logistics+Specialist" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -309,15 +380,15 @@
                         <tbody>
                             <tr class="job-row" data-location="singapore" data-department="marketing">
                                 <td class="job-title">Marketing Specialist</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/marketing-specialist" class="apply-btn marketing">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Marketing+Specialist" class="apply-btn marketing">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="marketing">
                                 <td class="job-title">Graduate Trainee (Indonesia Sales)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/graduate-trainee-indonesia" class="apply-btn marketing">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Graduate+Trainee+(Indonesia+Sales)" class="apply-btn marketing">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="marketing">
                                 <td class="job-title">E-Commerce Specialist</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/ecommerce-specialist" class="apply-btn marketing">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=E-commerce+Specialist" class="apply-btn marketing">Apply Now</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -335,31 +406,31 @@
                         <tbody>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Algorithm Engineer (Healthcare)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/algorithm-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Algorithm+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Materials Engineer (Healthcare)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/materials-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Materials+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Electronics Engineer (Healthcare)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/electronics-engineer-healthcare" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Electronics+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Researcher (Electronics)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-electronics" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Electronics)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Researcher (Hearing Aids)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-hearing-aids" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Hearing+Aids)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Researcher (Algorithms)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-algorithms" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Algorithms)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="singapore" data-department="research">
                                 <td class="job-title">Researcher (Acoustic Devices)</td>
-                                <td><a href="https://careers.shokz.com/apply/singapore/researcher-acoustic-devices" class="apply-btn research">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Acoustic+Devices)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -381,15 +452,15 @@
                         <tbody>
                             <tr class="job-row" data-location="shenzhen" data-department="logistics">
                                 <td class="job-title">Product Material Planner</td>
-                                <td><a href="https://careers.shokz.com/apply/shenzhen/product-material-planner" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Product+Material+Planner+(Shenzhen+Headquarters)" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="shenzhen" data-department="logistics">
                                 <td class="job-title">International Logistics Specialist</td>
-                                <td><a href="https://careers.shokz.com/apply/shenzhen/international-logistics-specialist" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=International+Logistics+Specialist+(Shenzhen+Headquarters)" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                             <tr class="job-row" data-location="shenzhen" data-department="logistics">
                                 <td class="job-title">Overseas Warehouse Specialist</td>
-                                <td><a href="https://careers.shokz.com/apply/shenzhen/overseas-warehouse-specialist" class="apply-btn logistics">Apply Now</a></td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Overseas+Warehouse+Specialist+(Shenzhen+Headquarters)" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                         </tbody>
                     </table>
