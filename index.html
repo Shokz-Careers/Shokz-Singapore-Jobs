@@ -8,20 +8,6 @@
 
   gtag('config', 'G-7DW2BK4YBB');
 </script>
-<!-- <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url=http://example.com">
-        <script type="text/javascript">
-            window.location.href = "http://example.com"
-        </script>
-        <title>Page Redirection</title>
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href='http://example.com'>link to example</a>.
-    </body>
-</html> -->
 
 <html lang="en">
 <head>
@@ -354,7 +340,8 @@
                     <option value="">All Departments</option>
                     <option value="logistics">Quality & Planning & Logistics</option>
                     <option value="marketing">Sales & Marketing</option>
-                    <option value="research">Basic Research</option>
+                    <option value="research-engineers">Basic Research: Engineers</option>
+                    <option value="research-scientists">Basic Research: Top Future Scientists</option>
                 </select>
             </div>
             <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
@@ -365,6 +352,63 @@
             
             <div class="office-section" data-location="singapore">
                 <h2 class="office-title">Singapore Office</h2>
+
+                
+                <div class="department" data-department="research-scientists">
+                    <h3 class="department-title">Basic Research: Top Future Scientists</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="singapore" data-department="research-scientists">
+                                <td class="job-title">Researcher (Electronics)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Electronics)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research-scientists">
+                                <td class="job-title">Researcher (Hearing Aids)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Hearing+Aids)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research-scientists">
+                                <td class="job-title">Researcher (Algorithms)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Algorithms)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research-scientists">
+                                <td class="job-title">Researcher (Acoustic Devices)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Acoustic+Devices)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="department" data-department="research-engineers">
+                    <h3 class="department-title">Basic Research: Engineers</h3>
+                    <table class="jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th style="width: 120px;">Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="job-row" data-location="singapore" data-department="research-engineers">
+                                <td class="job-title">Algorithm Engineer (Healthcare)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Algorithm+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research-engineers">
+                                <td class="job-title">Materials Engineer (Healthcare)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Materials+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                            <tr class="job-row" data-location="singapore" data-department="research-engineers">
+                                <td class="job-title">Electronics Engineer (Healthcare)</td>
+                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Electronics+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 
                 <div class="department" data-department="logistics">
                     <h3 class="department-title">Quality & Planning & Logistics</h3>
@@ -418,47 +462,6 @@
                     </table>
                 </div>
 
-                <div class="department" data-department="research">
-                    <h3 class="department-title">Basic Research</h3>
-                    <table class="jobs-table">
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th style="width: 120px;">Apply</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Algorithm Engineer (Healthcare)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Algorithm+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Materials Engineer (Healthcare)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Materials+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Electronics Engineer (Healthcare)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Electronics+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Researcher (Electronics)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Electronics)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Researcher (Hearing Aids)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Hearing+Aids)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Researcher (Algorithms)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Algorithms)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                            <tr class="job-row" data-location="singapore" data-department="research">
-                                <td class="job-title">Researcher (Acoustic Devices)</td>
-                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Acoustic+Devices)" class="apply-btn research">Apply Now</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
 
             <div class="office-section" data-location="shenzhen">
@@ -515,10 +518,12 @@
                     { title: "Graduate Trainee (Indonesia Sales)", url: "https://careers.shokz.com/apply/singapore/graduate-trainee-indonesia" },
                     { title: "E-Commerce Specialist", url: "https://careers.shokz.com/apply/singapore/ecommerce-specialist" }
                 ],
-                research: [
+                "research-engineers": [
                     { title: "Algorithm Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/algorithm-engineer-healthcare" },
                     { title: "Materials Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/materials-engineer-healthcare" },
-                    { title: "Electronics Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/electronics-engineer-healthcare" },
+                    { title: "Electronics Engineer (Healthcare)", url: "https://careers.shokz.com/apply/singapore/electronics-engineer-healthcare" }
+                ],
+                "research-scientists": [
                     { title: "Researcher (Electronics)", url: "https://careers.shokz.com/apply/singapore/researcher-electronics" },
                     { title: "Researcher (Hearing Aids)", url: "https://careers.shokz.com/apply/singapore/researcher-hearing-aids" },
                     { title: "Researcher (Algorithms)", url: "https://careers.shokz.com/apply/singapore/researcher-algorithms" },
