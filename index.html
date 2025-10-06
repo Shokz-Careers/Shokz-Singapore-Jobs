@@ -506,6 +506,115 @@
     </div>
 
     <script>
+        // Google Analytics Event Tracking Functions
+        function trackEvent(eventName, parameters = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    event_category: 'Job Listing',
+                    ...parameters
+                });
+            }
+        }
+
+        function trackPageView() {
+            trackEvent('page_view', {
+                page_title: 'Shokz Job Listings',
+                page_location: window.location.href,
+                content_group1: 'Career Page'
+            });
+        }
+
+        function trackFilterUsage(filterType, filterValue) {
+            trackEvent('filter_used', {
+                filter_type: filterType,
+                filter_value: filterValue,
+                event_label: `${filterType}: ${filterValue}`
+            });
+        }
+
+        function trackJobApplication(jobTitle, location, department) {
+            trackEvent('job_application_click', {
+                job_title: jobTitle,
+                job_location: location,
+                job_department: department,
+                event_label: `${jobTitle} - ${location}`,
+                value: 1
+            });
+        }
+
+        function trackJobDetailView(jobTitle, location, department) {
+            trackEvent('job_detail_view', {
+                job_title: jobTitle,
+                job_location: location,
+                job_department: department,
+                event_label: `${jobTitle} - ${location}`
+            });
+        }
+
+        function trackScrollDepth() {
+            let maxScroll = 0;
+            const scrollThresholds = [25, 50, 75, 90];
+            let trackedThresholds = [];
+
+            function checkScrollDepth() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                }
+
+                scrollThresholds.forEach(threshold => {
+                    if (scrollPercent >= threshold && !trackedThresholds.includes(threshold)) {
+                        trackedThresholds.push(threshold);
+                        trackEvent('scroll_depth', {
+                            scroll_percentage: threshold,
+                            event_label: `${threshold}% scrolled`
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkScrollDepth);
+        }
+
+        function trackTimeOnPage() {
+            const startTime = Date.now();
+            
+            // Track time intervals
+            const timeIntervals = [30, 60, 120, 300]; // 30s, 1min, 2min, 5min
+            const trackedIntervals = [];
+
+            timeIntervals.forEach(interval => {
+                setTimeout(() => {
+                    if (!trackedIntervals.includes(interval)) {
+                        trackedIntervals.push(interval);
+                        trackEvent('time_on_page', {
+                            time_seconds: interval,
+                            event_label: `${interval} seconds on page`
+                        });
+                    }
+                }, interval * 1000);
+            });
+
+            // Track when user leaves the page
+            window.addEventListener('beforeunload', () => {
+                const totalTime = Math.round((Date.now() - startTime) / 1000);
+                trackEvent('page_exit', {
+                    time_on_page_seconds: totalTime,
+                    event_label: `Exited after ${totalTime} seconds`
+                });
+            });
+        }
+
+        // Initialize tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            trackPageView();
+            trackScrollDepth();
+            trackTimeOnPage();
+        });
+
         const jobs = {
             singapore: {
                 logistics: [
@@ -867,11 +976,29 @@
                     detailsRow.appendChild(detailsCell);
                     row.parentNode.insertBefore(detailsRow, row.nextSibling);
 
+                    // Add click tracking to apply button
+                    applyAnchor.addEventListener('click', (evt) => {
+                        const jobTitle = jobTitleCell.textContent;
+                        const location = row.dataset.location || '';
+                        const department = row.dataset.department || '';
+                        
+                        trackJobApplication(jobTitle, location, department);
+                    });
+
                     row.addEventListener('click', (evt) => {
                         if (evt.target.closest('.apply-btn')) return;
                         const isHidden = detailsRow.classList.contains('hidden');
                         detailsRow.classList.toggle('hidden');
                         row.classList.toggle('active', isHidden);
+                        
+                        // Track job detail view when expanded
+                        if (isHidden) {
+                            const jobTitle = jobTitleCell.textContent;
+                            const location = row.dataset.location || '';
+                            const department = row.dataset.department || '';
+                            
+                            trackJobDetailView(jobTitle, location, department);
+                        }
                     });
                 });
             });
@@ -880,6 +1007,14 @@
         function filterJobs() {
             const locationFilter = document.getElementById('locationFilter').value;
             const departmentFilter = document.getElementById('departmentFilter').value;
+            
+            // Track filter usage
+            if (locationFilter) {
+                trackFilterUsage('location', locationFilter);
+            }
+            if (departmentFilter) {
+                trackFilterUsage('department', departmentFilter);
+            }
             
             let visibleCount = 0;
             
@@ -931,6 +1066,12 @@
         function clearFilters() {
             document.getElementById('locationFilter').value = '';
             document.getElementById('departmentFilter').value = '';
+            
+            // Track filter clear action
+            trackEvent('filter_cleared', {
+                event_label: 'All filters cleared'
+            });
+            
             filterJobs();
         }
 
