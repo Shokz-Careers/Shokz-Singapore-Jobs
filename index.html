@@ -27,6 +27,7 @@
             color: #333;
             background: #f8fafc;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
@@ -36,6 +37,7 @@
             border-radius: 16px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             overflow: hidden;
+            width: 100%;
         }
 
         .header {
@@ -141,6 +143,11 @@
             margin-bottom: 30px;
         }
 
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .department-title {
             font-size: 1.2em;
             color: #4a5568;
@@ -158,6 +165,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-width: 300px;
         }
 
         .jobs-table th {
@@ -181,6 +189,30 @@
         .job-title {
             font-weight: 600;
             color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .expand-arrow {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .expand-arrow.expanded {
+            transform: rotate(90deg);
+        }
+
+        .expand-arrow:hover {
+            color: #5a67d8;
         }
 
         .job-row { cursor: pointer; }
@@ -274,6 +306,8 @@
             text-decoration: none;
             display: inline-block;
             white-space: nowrap;
+            min-width: 100px;
+            text-align: center;
         }
 
         .apply-btn:hover {
@@ -310,11 +344,101 @@
         }
 
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .header { padding: 30px 20px; }
-            .content { padding: 20px; }
-            .filters { padding: 20px; flex-direction: column; align-items: stretch; }
-            .filter-group { justify-content: space-between; }
+            body { 
+                padding: 10px; 
+            }
+            .container {
+                border-radius: 12px;
+            }
+            .header { 
+                padding: 30px 20px; 
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .shokz-logo {
+                width: 120px;
+                height: 120px;
+            }
+            .content { 
+                padding: 20px; 
+            }
+            .filters { 
+                padding: 20px; 
+                flex-direction: column; 
+                align-items: stretch; 
+                gap: 15px;
+            }
+            .filter-group { 
+                justify-content: space-between; 
+                flex-wrap: wrap;
+            }
+            .filter-select {
+                flex: 1;
+                min-width: 150px;
+            }
+            .jobs-table th,
+            .jobs-table td {
+                padding: 12px 15px;
+            }
+            .apply-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+                min-width: 80px;
+            }
+            .expand-arrow {
+                width: 18px;
+                height: 18px;
+                font-size: 14px;
+            }
+            .office-title {
+                font-size: 1.5em;
+            }
+            .department-title {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body { 
+                padding: 5px; 
+            }
+            .header { 
+                padding: 20px 15px; 
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .shokz-logo {
+                width: 100px;
+                height: 100px;
+            }
+            .content { 
+                padding: 15px; 
+            }
+            .filters { 
+                padding: 15px; 
+            }
+            .jobs-table th,
+            .jobs-table td {
+                padding: 10px 12px;
+            }
+            .apply-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+                min-width: 70px;
+            }
+            .expand-arrow {
+                width: 16px;
+                height: 16px;
+                font-size: 12px;
+            }
+            .office-title {
+                font-size: 1.3em;
+            }
+            .department-title {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -356,7 +480,8 @@
                 
                 <div class="department" data-department="research-scientists">
                     <h3 class="department-title">Basic Research: Top Future Scientists</h3>
-                    <table class="jobs-table">
+                    <div class="table-wrapper">
+                        <table class="jobs-table">
                         <thead>
                             <tr>
                                 <th>Position</th>
@@ -381,12 +506,14 @@
                                 <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Researcher+(Acoustic+Devices)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
                 
                 <div class="department" data-department="research-engineers">
                     <h3 class="department-title">Basic Research: Engineers</h3>
-                    <table class="jobs-table">
+                    <div class="table-wrapper">
+                        <table class="jobs-table">
                         <thead>
                             <tr>
                                 <th>Position</th>
@@ -407,12 +534,14 @@
                                 <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Electronics+Engineer+(Health+Care)" class="apply-btn research">Apply Now</a></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
                 
                 <div class="department" data-department="logistics">
                     <h3 class="department-title">Quality & Planning & Logistics</h3>
-                    <table class="jobs-table">
+                    <div class="table-wrapper">
+                        <table class="jobs-table">
                         <thead>
                             <tr>
                                 <th>Position</th>
@@ -433,12 +562,14 @@
                                 <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=International+Logistics+Specialist" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="department" data-department="marketing">
                     <h3 class="department-title">Sales & Marketing</h3>
-                    <table class="jobs-table">
+                    <div class="table-wrapper">
+                        <table class="jobs-table">
                         <thead>
                             <tr>
                                 <th>Position</th>
@@ -459,7 +590,8 @@
                                 <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=E-commerce+Specialist" class="apply-btn marketing">Apply Now</a></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
 
             </div>
@@ -469,7 +601,8 @@
                 
                 <div class="department" data-department="logistics">
                     <h3 class="department-title">Planning & Logistics</h3>
-                    <table class="jobs-table">
+                    <div class="table-wrapper">
+                        <table class="jobs-table">
                         <thead>
                             <tr>
                                 <th>Position</th>
@@ -490,7 +623,8 @@
                                 <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCnZdS7oY2XRxuGya4muQjNY1xSdQwF0y5284LvB8txmGzaA/viewform?usp=pp_url&entry.1921630338=Overseas+Warehouse+Specialist+(Shenzhen+Headquarters)" class="apply-btn logistics">Apply Now</a></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -963,6 +1097,18 @@
                     const location = row.dataset.location || '';
                     const department = row.dataset.department || '';
 
+                    // Add expand arrow to job title
+                    const expandArrow = document.createElement('span');
+                    expandArrow.className = 'expand-arrow';
+                    expandArrow.innerHTML = '▶';
+                    expandArrow.setAttribute('aria-label', 'Expand job details');
+                    
+                    // Insert arrow at the beginning of the job title
+                    const jobTitleText = jobTitleCell.textContent;
+                    jobTitleCell.innerHTML = '';
+                    jobTitleCell.appendChild(expandArrow);
+                    jobTitleCell.appendChild(document.createTextNode(jobTitleText));
+
                     const detailsRow = document.createElement('tr');
                     detailsRow.className = 'job-details hidden';
                     const detailsCell = document.createElement('td');
@@ -970,7 +1116,7 @@
                     detailsCell.innerHTML = `
                         <div class="details-panel">
                             <div class="details-meta">Location: ${location.charAt(0).toUpperCase() + location.slice(1)} · Department: ${department.charAt(0).toUpperCase() + department.slice(1)}</div>
-                            <div class="details-description">${getJobDescription(jobTitleCell.textContent)}</div>
+                            <div class="details-description">${getJobDescription(jobTitleText)}</div>
                         </div>
                     `;
                     detailsRow.appendChild(detailsCell);
@@ -978,22 +1124,25 @@
 
                     // Add click tracking to apply button
                     applyAnchor.addEventListener('click', (evt) => {
-                        const jobTitle = jobTitleCell.textContent;
+                        const jobTitle = jobTitleText;
                         const location = row.dataset.location || '';
                         const department = row.dataset.department || '';
                         
                         trackJobApplication(jobTitle, location, department);
                     });
 
+                    // Handle row click (including arrow click)
                     row.addEventListener('click', (evt) => {
                         if (evt.target.closest('.apply-btn')) return;
+                        
                         const isHidden = detailsRow.classList.contains('hidden');
                         detailsRow.classList.toggle('hidden');
                         row.classList.toggle('active', isHidden);
+                        expandArrow.classList.toggle('expanded', isHidden);
                         
                         // Track job detail view when expanded
                         if (isHidden) {
-                            const jobTitle = jobTitleCell.textContent;
+                            const jobTitle = jobTitleText;
                             const location = row.dataset.location || '';
                             const department = row.dataset.department || '';
                             
